@@ -1,0 +1,54 @@
+#Tiron Teodor, 324CA
+#Tema 3 IOCLA - Infernul lui Biju
+
+Task 1
+Programul caută cea valori din vector începând cu cea mai mare și face
+legătura unui element cu elementul a cărui valoare e cu 1 mai mare.
+(În cazul elementului cel mai mare, se face legătura cu 0x0)
+
+Task 2
+Partea I - pentru a calcula CMMMC, am folosit formula:
+
+CMMMC(a, b) = a * b / CMMDC(a, b)
+
+Pentru a calcula CMMDC am folosit algoritmul lui Euclid. (scăderi repetate)
+
+Partea II - inițial pe stivă se pune valoarea 0. De câte ori se ajunge la o
+paranteză deschisă (valoarea 40) se adaugă un 1 pe stivă. Dacă caracterul nu
+este o paranteză deschisă, se dă pop la stivă. Dacă se ajunge la valoarea 0
+și șirul de caractere nu a fost parcurs complet încă, înseamnă că nu au fost
+deschise suficiente paranteze. Dacă se ajunge la finalul șirului de caractere
+fără să se întrerupă execuția, șirul este corect.
+
+Task 3
+În cadrul funcției get_words, am folosit funcția strtok pentru a despărți șirul
+în cuvinte. În cadrul funcției sort, am folosit funcția qsort. Pentru funcția de
+comparare am verificat inițial lungimea cuvintelor cu funcția strlen. Dacă cele
+două cuvinte au aceeași lungime, am apelat strcmp.
+
+Task 4 - nu am făcut acest task
+
+Bonus x64
+Pentru a obține parametrii funcției, am ținut cont de convenția de pasare de
+parametrii pentru arhitectura x86_64. În această arhitectură, primii 6
+parametrii sunt transmiși direct prin regiștrii RDI, RSI, RDX, RCX, R8 și R9.
+Pentru a realiza intercalarea vectorilor, am parcurs alternativ cei doi
+vectori, începând cu v1. În situația în care unul dintre vectori a ajuns la
+final, am iterat doar prin vectorul încă neterminat.
+
+Bonus CPUID
+Instrucțiunea cpuid are output diferit în funcție de valoarea din registrul EAX.
+Pentru EAX = 0, am obținut modelul procesorului, valoare stocată în regiștrii
+EBX, EDX și ECX (în această ordine).
+Pentru EAX = 1, în ECX se încarcă un șir de 0 și 1, care indică existența anumitor
+proprietăți ale procesorului.
+Indicatorul pentru instrucțiunile VMX se află pe bitul 5, pentru RDRAND este bitul
+30, iar pentru AVX bitul este 28.
+Pentru EAX = 4, se obțin date legate de un anume nivel de cache, nivel transmis
+prin ECX. În ECX se va reține numărul de seturi, iar în EBX se vor reține detalii
+despre cache-ul respectiv:
+-biții 0 - 11: dimensiunea liniei de cache
+-biții 12 - 21: numărul de partiții
+-biții 22 - 31: numărul de căi
+Pentru a calcula dimensiunea totală se folosește formula:
+dim = (căi + 1) * (partiții + 1) * (dim_linie + 1) *  (seturi + 1)

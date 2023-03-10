@@ -1,0 +1,7 @@
+Teodor Tiron, 324CA
+
+Programul dat implementează funcționalitatea unui sistem de fișiere alcătuit din directoare și fișiere. Interacțiunea cu programul se face prin stdin, care execută instrucțiunile pe măsură ce le citește, asemenea unui terminal. Inițial, se contruiește un director numit "home" în care se vor construi toate celelalte obiecte ale sistemului.
+Comenzile touch și mkdir construiesc un fișier, respectiv un director și îl adaugă la directorul curent.
+Comanda rmdir găsește directorul ce trebuie șters și eliberează recursiv memoria tuturor subdirectoarelor și fișierelor aferente, apoi eliberează și memoria directorului dat. Comanda tree afișează fiecare director din directorul inițial, apelându-se cu un nivel mai mare din nou pentru fiecare subdirector până nu mai există alte subdirectoare, apoi afișează fișierele.
+Comanda pwd parcurge directoarele de la directorul curent până la rădăcină, folosindu-se de șirurile path și aux pentru a afișa drumul parcurs, de la coadă la cap.
+Comanda mv verifică inițial dacă există un director/fișier cu numele oldname, apoi verifică dacă există un director/fișier cu numele newname. Dacă nu există un obiect cu numele oldname, se afișează "File/Director not found". Dacă există un obiect cu numele oldname, dar și unul cu numele newname, se afișează "File/Director already exists". Altfel, se caută obiectul cu numele oldname, se păstrează în pointerul tbm, se refac legăturile astfel încât se sare peste obiectul cu numele oldname, apoi acel obiect se adaugă la sfârșitul listei de directoare/fișiere.

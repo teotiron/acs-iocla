@@ -1,0 +1,35 @@
+#Tiron Teodor, 324CA
+#Tema 2 IOCLA - Memoria lui Biju
+
+1. Reversed One Time Pad
+Programul parcurge șirul stocat în plaintext, extrage fiecare caracter
+și aplică XOR între caracter și caracterul din key parcurs de la coadă
+la cap.
+
+2. Ages
+Programul face diferența între anul curent și anul nașterii unei persoane,
+apoi verifică dacă persoana respectivă și-a serbat ziua în anul curent.
+Dacă încă nu a fost ziua persoanei, se scade 1 din diferența calculată.
+În cazul în care diferența devine -1, înseamnă că persoana respectivă
+încă nu s-a născut, iar programul va pune valoarea 0. Altfel, programul
+pune valoarea finală a diferenței în vector.
+
+3. Columnar Transposition Cipher
+Funcționalitatea programului poate fi ilustrată prin următorul cod:
+
+for (i = 0; i < l_cheie; i++)
+	for (j = 0; j < line_count; j++)
+		if (plaintext[j][cheie[i]] este caracter)  ;valoarea cuprinsă
+													între 31 și 127
+			ciphertext[k++] = plaintext[j][cheie[i]]
+
+cu mențiunea că line_count este egal cu ceil(l_plain / l_cheie).
+
+4. Cache Load Simulation
+În cadrul etichetei find_tag, programul caută dacă tag-ul dat (obținut prin
+eliminarea ultimilor 3 biți prin shiftare) se află în vectorul de tag-uri.
+Dacă este găsit, se sare la eticheta cache_hit, altfel dacă se parcurge tot
+vectorul de tag-uri și tag-ul curent nu este găsit, se sare la eticheta
+cache_miss. În cadrul cache_hit, se returnează valoarea asociată adresei
+date din cache. În cadrul cache_miss, mai întâi se pun valori din memoria ram
+în matricea cache, apoi se returnează valoarea asociată adresei date din cache.
